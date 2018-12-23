@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ymap Cluster</title>
 </head>
+
 <body>
+    <div id="map" style="width:400px; height:300px"></div>
+    <script type="text/javascript" charset="utf-8" src="https://map.yahooapis.jp/js/V1/jsapi?appid=dj0zaiZpPVVCWFI0N3ZUWEJaYyZzPWNvbnN1bWVyc2VjcmV0Jng9ZGM-
+    "></script>
+    <script src="./bundle/ymap-cluster.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var ymap = new Y.Map("map");
+            ymap.drawMap(new Y.LatLng(35.66572, 139.73100), 17, Y.LayerSetId.NORMAL);
+            var marker = new Y.Marker(new Y.LatLng(35.66572, 139.73100));
+            var marker2 = new Y.Marker(new Y.LatLng(35.66572, 139.73000));
+            var marker3 = new Y.Marker(new Y.LatLng(35.665, 139.734));
+            var marker4 = new Y.Marker(new Y.LatLng(35.6645, 139.734));
+            new YmapCluster(ymap, [marker, marker2, marker3, marker4]);
+            ymap.addFeature(marker);
+            ymap.addFeature(marker2);
+            ymap.addFeature(marker3);
+            ymap.addFeature(marker4);
+        }
+    </script>
     
 </body>
+
 </html>
