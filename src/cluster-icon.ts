@@ -11,7 +11,6 @@ export default class ClusterIcon {
   }
 
   hide() {
-    console.log('hide');
     if (this.marker) {
       this.map.removeFeature(this.marker);
     }
@@ -22,11 +21,18 @@ export default class ClusterIcon {
   }
 
   show() {
-    console.log('show');
+    if (this.marker) {
+      this.map.removeFeature(this.marker);
+    }
     const icon = new Y.Icon('./images/cluster.png', {
       iconSize: new Y.Size(32, 32),
     });
     this.marker = new Y.Marker(this.center, { icon });
     this.map.addFeature(this.marker);
+    this.onAdd(this.marker)
   }
+
+  onAdd(marker: Y.Marker) {
+    
+  } 
 }
