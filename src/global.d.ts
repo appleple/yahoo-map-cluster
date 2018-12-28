@@ -30,8 +30,24 @@ declare namespace Y {
     addFeature(marker: Marker): void
     removeFeature(marker: Marker): void
   }
+  class Size {
+    constructor(width: number, height: number)
+  }
+  type IconOption = {
+    iconSize?: Size,
+    iconAnchor?: Point,
+    infoWindowAnchor?: Point,
+    className?: string,
+    iconHtml?: string
+  }
+  class Icon {
+    constructor(src: string, option?: IconOption)
+  }
+  type MarkerOption = {
+    icon: Icon
+  }
   class Marker {
-    constructor(latlng: LatLng)
+    constructor(latlng: LatLng, option?: MarkerOption)
     getLatLng(): LatLng
     getMap(): Map
   }

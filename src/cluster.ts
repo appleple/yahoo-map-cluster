@@ -1,18 +1,10 @@
-interface ClusterConfig {
-  gridSize: number,
-  minClusterSize: number
-}
-
-type Partial<T> = {
-  [P in keyof T]?: T[P];
-};
-
-type ClusterOption = Partial<ClusterConfig>
-
+import ClusterIcon from './cluster-icon'
+import { ClusterConfig, ClusterOption } from './cluster-type';
 
 const defaults = {
   gridSize: 60,
-  minClusterSize: 2
+  minClusterSize: 2,
+  maxZoom: null
 }
 
 export default class Cluster {
@@ -22,12 +14,14 @@ export default class Cluster {
   private gridSize: number;
   private map: Y.Map;
   private option: ClusterConfig;
+  private clusterIcon: ClusterIcon;
 
   constructor(map: Y.Map, option: ClusterOption) {
     const opt = Object.assign({}, defaults, option);
     this.map = map;
     this.gridSize = opt.gridSize;
     this.option = opt;
+    this.clusterIcon = new ClusterIcon(this.map, this.option);
   }
 
   private calculateBounds() {
@@ -85,7 +79,7 @@ export default class Cluster {
 
     const len = this.markers.length;
     if (len < minClusterSize) {
-      map.addFeature(marker);
+      // map.addFeature(marker);
     }
     if (len === minClusterSize) {
       for (let i = 0; i < len; i++) {
@@ -95,6 +89,7 @@ export default class Cluster {
     if (len >= minClusterSize) {
       map.removeFeature(marker);
     }
+    this.updateIcon();
   }
 
   public isMarkerInClusterBounds(marker: Y.Marker): boolean {
@@ -112,5 +107,29 @@ export default class Cluster {
       return false;
     })
     return find ? true : false;
+  }
+
+  public getMaxZoom() {
+    return this.option.maxZoom;
+  }
+
+  public updateIcon() {
+    const zoom = this.map.getZoom();
+    const maxZoom = this.getMaxZoom();
+    if (maxZoom && zoom > maxZoom) {
+      this.markers.forEach((marker) => {
+        this.map.addFeature(marker);
+      });
+      return;
+    }
+    if (this.markers.length < this.option.minClusterSize) {
+      this.clusterIcon.hide();
+      return;
+    }
+    // todo sums
+    if (this.center) {
+      this.clusterIcon.setCenter(this.center);
+    }
+    this.clusterIcon.show();
   }
 }
