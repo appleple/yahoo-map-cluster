@@ -16,6 +16,9 @@ export default class YmapCluster {
     this.map = map;
     this.options = options;
     this.createClusters();
+    this.map.bind('zoomend', () => {
+      this.update();
+    })
   }
 
   private createClusters() {

@@ -31,6 +31,7 @@ declare namespace Y {
     removeFeature(marker: Marker): void
     getBoundsZoomLevel(bounds: LatLngBounds): number
     setZoom(zoom: number, animation: boolean, latlng: Y.LatLng, center: boolean): void
+    bind(eventName: string, fn: Function): void
   }
   class Size {
     constructor(width: number, height: number)
