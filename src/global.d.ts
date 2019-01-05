@@ -29,6 +29,8 @@ declare namespace Y {
     getZoom(): number
     addFeature(marker: Marker): void
     removeFeature(marker: Marker): void
+    getBoundsZoomLevel(bounds: LatLngBounds): number
+    setZoom(zoom: number, animation: boolean, latlng: Y.LatLng, center: boolean): void
   }
   class Size {
     constructor(width: number, height: number)
@@ -50,5 +52,6 @@ declare namespace Y {
     constructor(latlng: LatLng, option?: MarkerOption)
     getLatLng(): LatLng
     getMap(): Map
+    bind(eventName: string, fn: Function): void
   }
 }

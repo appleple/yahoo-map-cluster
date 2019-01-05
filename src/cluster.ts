@@ -21,7 +21,7 @@ export default class Cluster {
     this.map = map;
     this.gridSize = opt.gridSize;
     this.option = opt;
-    this.clusterIcon = new ClusterIcon(this.map, this.option);
+    this.clusterIcon = new ClusterIcon(this.map, this, this.option);
   }
 
   private calculateBounds() {
@@ -57,6 +57,10 @@ export default class Cluster {
 
   public getCenter() {
     return this.center;
+  }
+
+  public getBounds() {
+    return this.bounds;
   }
 
   public addMarker(marker: Y.Marker) {

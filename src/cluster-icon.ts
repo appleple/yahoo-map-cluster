@@ -1,12 +1,15 @@
 import { ClusterConfig, ClusterOption } from './cluster-type';
+import YmapCluster from './cluster';
 
 export default class ClusterIcon {
   clusterOption: ClusterOption;
   center: Y.LatLng = new Y.LatLng(0, 0);
   map: Y.Map;
+  cluster: YmapCluster;
   marker: Y.Marker | null = null;
-  constructor(map: Y.Map, clusterOption: ClusterOption) {
+  constructor(map: Y.Map, cluster: YmapCluster, clusterOption: ClusterOption) {
     this.clusterOption = clusterOption;
+    this.cluster = cluster;
     this.map = map;
   }
 
@@ -33,6 +36,15 @@ export default class ClusterIcon {
   }
 
   onAdd(marker: Y.Marker) {
-    
+    if (this.marker) {
+      this.marker.bind('click', () => {
+        const center = this.cluster.getCenter();
+        const bounds = this.cluster.getBounds();
+        if (bounds && center) {
+          const zoomLevel = this.map.getBoundsZoomLevel(bounds);
+          this.map.setZoom(zoomLevel, true, center, true);
+        }
+      });
+    }
   } 
 }
