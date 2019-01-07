@@ -20,10 +20,12 @@
             var marker = new Y.Marker(new Y.LatLng(35.66572, 139.73100));
             var marker2 = new Y.Marker(new Y.LatLng(35.66572, 139.73000));
             var marker3 = new Y.Marker(new Y.LatLng(35.665, 139.734));
-            var marker4 = new Y.Marker(new Y.LatLng(35.6645, 139.734));
-            var marker5 = new Y.Marker(new Y.LatLng(35.665, 139.734));
-            var marker6 = new Y.Marker(new Y.LatLng(35.6645, 139.734));
+            var marker4 = new Y.Marker(new Y.LatLng(35.6635, 139.734));
+            var marker5 = new Y.Marker(new Y.LatLng(35.665, 139.731));
+            var marker6 = new Y.Marker(new Y.LatLng(35.6642, 139.733));
             new YmapCluster(ymap, [marker, marker2, marker3, marker4, marker5, marker6]);
+            var control = new Y.ZoomControl();
+            ymap.addControl(control);
         }
     </script>
 </body>
