@@ -117,6 +117,10 @@ export default class Cluster {
     return this.option.maxZoom;
   }
 
+  public hide() {
+    this.clusterIcon.hide();
+  }
+
   public updateIcon() {
     const zoom = this.map.getZoom();
     const maxZoom = this.getMaxZoom();

@@ -70,6 +70,9 @@ export default class YmapCluster {
   }
 
   public update() {
+    this.clusters.forEach((cluster) => {
+      cluster.hide();
+    });
     this.clusters = [];
     const { markers } = this;
     markers.forEach((marker) => {
