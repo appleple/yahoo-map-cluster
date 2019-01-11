@@ -83,11 +83,11 @@ export default class Cluster {
 
     const len = this.markers.length;
     if (len < minClusterSize) {
-      // map.addFeature(marker);
+      map.addFeature(marker);
     }
     if (len === minClusterSize) {
       for (let i = 0; i < len; i++) {
-        map.removeFeature(marker);
+        map.removeFeature(this.markers[i]);
       }
     }
     if (len >= minClusterSize) {
