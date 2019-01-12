@@ -42,11 +42,12 @@ export default class ClusterIcon {
     }
     const icon = new Y.Icon('./images/cluster.png', {
       iconSize: new Y.Size(53, 52),
+      className: 'ymap-cluster-icon'
     });
     this.marker = new Y.Marker(this.center, { icon });
     this.map.addFeature(this.marker);
     this.label = new Y.Label(this.center, `${this.sums}`, {
-      className: 'ymap-cluster-icon'
+      className: 'ymap-cluster-label'
     });
     this.map.addFeature(this.label);
     this.onAdd(this.marker)
