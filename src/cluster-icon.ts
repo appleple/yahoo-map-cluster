@@ -7,15 +7,25 @@ export default class ClusterIcon {
   map: Y.Map;
   cluster: YmapCluster;
   marker: Y.Marker | null = null;
+  label: Y.Label | null = null;
+  sums: number;
   constructor(map: Y.Map, cluster: YmapCluster, clusterOption: ClusterOption) {
     this.clusterOption = clusterOption;
     this.cluster = cluster;
     this.map = map;
+    this.sums = 0;
+  }
+
+  setSums(sums: number) {
+    this.sums = sums;
   }
 
   hide() {
     if (this.marker) {
       this.map.removeFeature(this.marker);
+    }
+    if (this.label) {
+      this.map.removeFeature(this.label);
     }
   }
 
@@ -27,11 +37,18 @@ export default class ClusterIcon {
     if (this.marker) {
       this.map.removeFeature(this.marker);
     }
+    if (this.label) {
+      this.map.removeFeature(this.label);
+    }
     const icon = new Y.Icon('./images/cluster.png', {
-      iconSize: new Y.Size(32, 32),
+      iconSize: new Y.Size(53, 52),
     });
     this.marker = new Y.Marker(this.center, { icon });
     this.map.addFeature(this.marker);
+    this.label = new Y.Label(this.center, `${this.sums}`, {
+      className: 'ymap-cluster-icon'
+    });
+    this.map.addFeature(this.label);
     this.onAdd(this.marker)
   }
 

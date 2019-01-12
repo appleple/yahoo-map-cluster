@@ -1,4 +1,5 @@
 import Cluster from './cluster';
+import { append } from './lib';
 
 interface ClusterOption {
   gridSize?: number,
@@ -18,7 +19,25 @@ export default class YmapCluster {
     this.createClusters();
     this.map.bind('zoomend', () => {
       this.update();
-    })
+    });
+    this.appendStyle();
+  }
+
+  private appendStyle() {
+    const body = document.querySelector('body');
+    if (body) {
+      append(body, `<style id="ymap-cluster"></style>`);
+      const style = document.querySelector('#ymap-cluster');
+      const html = `
+      .ymap-cluster-icon {
+        margin: -35px 0 0 -5px;
+        z-index: 2;
+      }
+      `;
+      if (style) {
+        style.innerHTML = html;
+      }
+    }
   }
 
   private createClusters() {

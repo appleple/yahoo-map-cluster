@@ -27,8 +27,8 @@ declare namespace Y {
     getBounds(): LatLngBounds
     getProjection(): Projection
     getZoom(): number
-    addFeature(marker: Marker): void
-    removeFeature(marker: Marker): void
+    addFeature(feather: Feather): void
+    removeFeature(feather: Feather): void
     getBoundsZoomLevel(bounds: LatLngBounds): number
     setZoom(zoom: number, animation: boolean, latlng: Y.LatLng, center: boolean): void
     bind(eventName: string, fn: Function): void
@@ -49,8 +49,22 @@ declare namespace Y {
   type MarkerOption = {
     icon: Icon
   }
-  class Marker {
+  type LabelOption = {
+    className: string
+  }
+  interface Feather {
+    getLatLng(): LatLng
+    getMap(): Map
+    bind(eventName: string, fn: Function): void
+  }
+  class Marker implements Feather{
     constructor(latlng: LatLng, option?: MarkerOption)
+    getLatLng(): LatLng
+    getMap(): Map
+    bind(eventName: string, fn: Function): void
+  }
+  class Label implements Feather {
+    constructor(latlng: LatLng, label: string, option?: LabelOption)
     getLatLng(): LatLng
     getMap(): Map
     bind(eventName: string, fn: Function): void

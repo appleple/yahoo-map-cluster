@@ -134,7 +134,8 @@ export default class Cluster {
       this.clusterIcon.hide();
       return;
     }
-    // todo sums
+    const sums = this.markers.length;
+    this.clusterIcon.setSums(sums);
     if (this.center) {
       this.clusterIcon.setCenter(this.center);
     }
