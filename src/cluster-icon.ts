@@ -33,6 +33,16 @@ export default class ClusterIcon {
     this.center = center;
   }
 
+  private getClusterSize() {
+    let { sums } = this;
+    let i = 1;
+    while(sums / 10 >= 1) {
+      sums = sums / 10;
+      i++;
+    }
+    return i;
+  }
+
   show() {
     if (this.marker) {
       this.map.removeFeature(this.marker);
@@ -40,7 +50,9 @@ export default class ClusterIcon {
     if (this.label) {
       this.map.removeFeature(this.label);
     }
-    const icon = new Y.Icon('./images/cluster.png', {
+    const size = this.getClusterSize();
+    console.log(size);
+    const icon = new Y.Icon(`${this.clusterOption.imagePath}${size}.png`, {
       iconSize: new Y.Size(53, 52),
       className: 'ymap-cluster-icon'
     });

@@ -1,10 +1,6 @@
 import Cluster from './cluster';
 import { append } from './lib';
-
-interface ClusterOption {
-  gridSize?: number,
-  minClusterSize?: number
-}
+import { ClusterOption } from './cluster-type';
 
 export default class YmapCluster {
   markers: Y.Marker[];
@@ -30,7 +26,7 @@ export default class YmapCluster {
       const style = document.querySelector('#ymap-cluster');
       const html = `
       .ymap-cluster-label {
-        margin: 0 0 0 -4px;
+        margin: 0 0 0 -7px;
         z-index: 2;
         font-size: 12px;
       }

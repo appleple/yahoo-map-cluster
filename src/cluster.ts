@@ -4,7 +4,8 @@ import { ClusterConfig, ClusterOption } from './cluster-type';
 const defaults = {
   gridSize: 60,
   minClusterSize: 2,
-  maxZoom: null
+  maxZoom: null,
+  imagePath: '../images/cluster/'
 }
 
 export default class Cluster {
