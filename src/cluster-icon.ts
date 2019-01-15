@@ -76,5 +76,15 @@ export default class ClusterIcon {
         }
       });
     }
+    if (this.label) {
+      this.label.bind('click', () => {
+        const center = this.cluster.getCenter();
+        const bounds = this.cluster.getBounds();
+        if (bounds && center) {
+          const zoomLevel = this.map.getBoundsZoomLevel(bounds);
+          this.map.setZoom(zoomLevel, true, center, true);
+        }
+      });
+    }
   } 
 }

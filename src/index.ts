@@ -32,6 +32,7 @@ export default class YmapCluster {
       }
       .ymap-cluster-icon {
         margin-top: -16px !important;
+        z-index: 0 !important;
       }
       `;
       if (style) {
