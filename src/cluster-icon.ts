@@ -51,7 +51,6 @@ export default class ClusterIcon {
       this.map.removeFeature(this.label);
     }
     const size = this.getClusterSize();
-    console.log(size);
     const icon = new Y.Icon(`${this.clusterOption.imagePath}${size}.png`, {
       iconSize: new Y.Size(53, 52),
       className: 'ymap-cluster-icon'

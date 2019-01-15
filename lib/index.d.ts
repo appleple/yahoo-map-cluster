@@ -1,14 +1,12 @@
 import Cluster from './cluster';
-interface ClusterOption {
-    gridSize?: number;
-    minClusterSize?: number;
-}
+import { ClusterOption } from './cluster-type';
 export default class YmapCluster {
     markers: Y.Marker[];
     map: Y.Map;
     clusters: Cluster[];
     options: ClusterOption;
     constructor(map: Y.Map, markers: Y.Marker[], options?: ClusterOption);
+    private appendStyle;
     private createClusters;
     private distanceBetweenPoints;
     private getClosestCluster;
@@ -16,4 +14,3 @@ export default class YmapCluster {
     update(): void;
     addMarker(marker: Y.Marker, draw?: boolean): void;
 }
-export {};
