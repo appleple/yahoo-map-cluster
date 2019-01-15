@@ -26,9 +26,13 @@ export default class YmapCluster {
       const style = document.querySelector('#ymap-cluster');
       const html = `
       .ymap-cluster-label {
-        margin: 0 0 0 -7px;
         z-index: 2;
         font-size: 12px;
+        width: 30px;
+        text-align: center;
+        position: absolute;
+        top: -10px;
+        left: -15px;
       }
       .ymap-cluster-icon {
         margin-top: -16px !important;
