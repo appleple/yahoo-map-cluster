@@ -40,6 +40,8 @@ $ yarn add yahoo-map-cluster
 <script src="https://unpkg.com/yahoo-map-cluster@latest/bundle/ymap-cluster.js"></script>
 ```
 
+## Use Library
+
 ### Webpack/Browserify
 
 ```js
