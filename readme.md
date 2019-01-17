@@ -46,6 +46,7 @@ $ yarn add yahoo-map-cluster
 
 ```js
 import YmapCluster from 'yahoo-map-cluster';
+new YmapCluster(map, clusters, options);
 ```
 ### Standalone
 
