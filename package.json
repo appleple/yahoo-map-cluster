@@ -1,5 +1,5 @@
 {
-    "name": "ymap-cluster",
+    "name": "yahoo-map-cluster",
     "version": "1.0.3",
     "description": "Yahoo Map Cluster",
     "main": "lib/index.js",
