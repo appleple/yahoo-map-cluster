@@ -2,7 +2,7 @@
 
 <img src="./screenshot.png">
 
-# Usage
+## Usage
 
 ```js
 var ymap = new Y.Map("map");
@@ -19,6 +19,41 @@ var marker9 = new Y.Marker(new Y.LatLng(35.6638, 139.7333));
 var marker10 = new Y.Marker(new Y.LatLng(35.6628, 139.7333));
 new YmapCluster(ymap, [marker, marker2, marker3, marker4, marker5, marker6, marker7, marker8, marker9, marker10]);
 ```
+
+## Install
+
+### via npm
+
+```sh
+$ npm install yahoo-map-cluster --save
+```
+
+### via yarn
+
+```sh
+$ yarn add yahoo-map-cluster
+```
+
+### via cdn 
+
+```html
+<script src="https://unpkg.com/yahoo-map-cluster@latest/bundle/ymap-cluster.js"></script>
+```
+
+### Webpack/Browserify
+
+```js
+import YmapCluster from 'yahoo-map-cluster';
+```
+### Standalone
+
+```html
+<script src="https://unpkg.com/yahoo-map-cluster@latest/bundle/ymap-cluster.js"></script>
+<script>
+new YmapCluster(map, clusters, options);
+</script>
+```
+
 
 ## Reference
 
