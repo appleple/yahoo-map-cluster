@@ -32,9 +32,9 @@ export default class YmapCluster {
         width: 30px;
         text-align: center;
         position: absolute;
-        top: -12px;
+        top: -14px;
         left: -15px;
-        font-family: 'Hiragino Sans';
+        font-family: Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3",Meiryo,"メイリオ","ＭＳ Ｐゴシック","MS PGothic",Verdana,sans-serif;
       }
       .ymap-cluster-icon {
         margin-top: -16px !important;
