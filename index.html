@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="map" style="width:400px; height:300px"></div>
+    <div id="map" style="width:900px; height:400px"></div>
     <script type="text/javascript" charset="utf-8" src="https://map.yahooapis.jp/js/V1/jsapi?appid=dj0zaiZpPVVCWFI0N3ZUWEJaYyZzPWNvbnN1bWVyc2VjcmV0Jng9ZGM-
     "></script>
     <script src="./bundle/ymap-cluster.js"></script>
@@ -27,7 +27,16 @@
             var marker8 = new Y.Marker(new Y.LatLng(35.665, 139.7343));
             var marker9 = new Y.Marker(new Y.LatLng(35.6638, 139.7333));
             var marker10 = new Y.Marker(new Y.LatLng(35.6628, 139.7333));
-            new YmapCluster(ymap, [marker, marker2, marker3, marker4, marker5, marker6, marker7, marker8, marker9, marker10]);
+            new YmapCluster(ymap, [marker, marker2, marker3, marker4, marker5, marker6, marker7, marker8, marker9, marker10], {
+              getClusterSize: function(sums) {
+                if (sums >= 3 && sums < 7) {
+                  return 2;
+                } else if (sums >= 7) {
+                  return 3;
+                }
+                return 1;
+              }
+            });
             var control = new Y.ZoomControl();
             ymap.addControl(control);
         }

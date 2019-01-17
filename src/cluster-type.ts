@@ -2,7 +2,9 @@ export interface ClusterConfig {
   gridSize: number,
   minClusterSize: number,
   maxZoom: number | null,
-  imagePath: string
+  imagePath: string,
+  injectStyle?: () => string,
+  getClusterSize?: (sums: number) => number
 }
 
 type Partial<T> = {

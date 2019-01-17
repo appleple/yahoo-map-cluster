@@ -24,15 +24,17 @@ export default class YmapCluster {
     if (body) {
       append(body, `<style id="ymap-cluster"></style>`);
       const style = document.querySelector('#ymap-cluster');
-      const html = `
+      const inject = this.options.injectStyle ? this.options.injectStyle() : '';
+      const html = inject ? inject : `
       .ymap-cluster-label {
         z-index: 2;
-        font-size: 12px;
+        font-size: 14px;
         width: 30px;
         text-align: center;
         position: absolute;
-        top: -10px;
+        top: -12px;
         left: -15px;
+        font-family: 'Hiragino Sans';
       }
       .ymap-cluster-icon {
         margin-top: -16px !important;

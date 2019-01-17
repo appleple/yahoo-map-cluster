@@ -57,7 +57,7 @@ declare namespace Y {
     getMap(): Map
     bind(eventName: string, fn: Function): void
   }
-  class Marker implements Feather{
+  class Marker implements Feather {
     constructor(latlng: LatLng, option?: MarkerOption)
     getLatLng(): LatLng
     getMap(): Map
