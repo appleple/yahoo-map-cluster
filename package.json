@@ -22,8 +22,8 @@
     ],
     "homepage": "https://appleple.github.io/document-outliner/",
     "author": {
-        "name": "Atsushi Ito (atsu666)",
-        "email": "ito@appleple.com"
+      "name": "steelydylan",
+      "email": "hori@appleple.com"
     },
     "license": "MIT",
     "devDependencies": {
