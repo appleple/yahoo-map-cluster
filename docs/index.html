@@ -207,8 +207,8 @@
       <div class="inner is-medium">
         <h1 class="logo">Yahoo! Map Cluster</h1>
         <div class="menu is-hide-small">
-          <a href="#demo">デモ</a>
-          <a href="#quick-start">クイックスタート</a>
+          <a href="#demo">Demo</a>
+          <a href="#quick-start">Quick Start</a>
           <a href="https://github.com/appleple/yahoo-map-cluster">GitHub</a>
           <a href="https://github.com/appleple/yahoo-map-cluster/archive/master.zip" class="button is-small is-ghost">Download</a>
         </div>
@@ -237,7 +237,7 @@
 
       <section class="section">
         <div class="inner inner-demo">
-          <h2 id="demo" class="section-title">デモ</h2>
+          <h2 id="demo" class="section-title">Demo</h2>
           <div class="map-wrap">
             <div class="map" id="map"></div>
           </div>
@@ -256,7 +256,7 @@ var marker10 = new Y.Marker(new Y.LatLng(35.6628, 139.7333));
 new YmapCluster(ymap, [marker, marker2, marker3, marker4, marker5, marker6, 
 marker7, marker8, marker9, marker10]);</code></pre>
 <div class="spacer"></div>
-        <p>クラスターの色をクラスターに入っているピンの数に応じて変更したい場合</p>
+        <p>When you want to change color of the clusters depending on the number of markers inside</p>
         <div class="map-wrap">
           <div class="map" id="map2"></div>
         </div>
@@ -273,14 +273,14 @@ new YmapCluster(ymap, markers, {
   }
 });</code></pre>
           <div class="spacer"></div>
-          <p><code>addMarker</code>メソッドを使えば動的にピンを追加することも可能です</p>
+          <p>You can also add markers dynamically by calling the medthod <code>addMarker</code></p>
           <div class="map-wrap">
             <div class="map" id="map3"></div>
           </div>
           <div style="padding-top: 10px">
-            <input type="text" class="input js-lat" placeholder="緯度" value="35.66572"/>
-            <input type="text" class="input js-lng" placeholder="経度" value="139.73100"/>
-            <button class="button js-btn" style="height: 2.3rem">追加</button>
+            <input type="text" class="input js-lat" placeholder="latitude" value="35.66572"/>
+            <input type="text" class="input js-lng" placeholder="longitude" value="139.73100"/>
+            <button class="button js-btn" style="height: 2.3rem">Add</button>
           </div>
           <pre><code class="js">var ymap = new Y.Map("map3");
 ymap.drawMap(new Y.LatLng(35.66572, 139.73100), 15, Y.LayerSetId.NORMAL);
@@ -297,15 +297,15 @@ btn.addEventListener('click', function() {
       </section>
       <section class="section">
         <div class="inner">
-          <h2 id="quick-start" class="section-title">クイックスタート</h2>
+          <h2 id="quick-start" class="section-title">Quick Start</h2>
           <h3>Using CDN</h3>
-          <p>CDNを利用することで簡単に始められます。<code>&lt;head&gt;</code>タグに以下のスクリプトを読み込めばOKです</p>
+          <p>Add the following description in the <code>&lt;head&gt;</code> tag of the web page you want to use</p>
           <pre><code class="html">&lt;script src="https://unpkg.com/yahoo-map-cluster@latest/bundle/ymap-cluster.js"&gt;&lt;/script&gt;</code></pre>
-          <p>また、Browserify/Webpackを利用したbundlingにも対応しています。</p>
+          <p>You can also bundle the library with Browserify/Webpack</p>
           <pre><code class="shell">npm install yahoo-map-cluster --save</code></pre>
           <pre><code class="javascript">import YmapCluster from 'yahoo-map-cluster'</code></pre>
           
-          <p>以下のように実行します。</p>
+          <p>Write the following script</p>
           <pre><code class="js">var ymap = new Y.Map("map");
 ymap.drawMap(new Y.LatLng(35.66572, 139.73100), 15, Y.LayerSetId.NORMAL);
 new YmapCluster(ymap, markers);</code></pre>
@@ -314,8 +314,8 @@ new YmapCluster(ymap, markers);</code></pre>
 
       <section class="section">
         <div class="inner">
-          <h2 id="options" class="section-title">オプション</h2>
-          <p>以下のようにいくつかのオプションを指定することも可能です。</p>
+          <h2 id="options" class="section-title">Options</h2>
+          <p>Some options are available when making new instances like below.</p>
           <pre><code class="js">new YmapCluster(map, markers, {
   imagePath: './assets/cluster/',
   getClusterSize: function(sums) {
@@ -327,38 +327,38 @@ new YmapCluster(ymap, markers);</code></pre>
     return 1;
   }
 });</code></pre>
-          <p>以下が指定可能なオプションです。</p>
+          <p>For your reference, below is the list of the options available.</p>
           <div style="overflow:auto" class="js-scrollable">
             <table class="table is-zebra" style="width: 100%;">
               <tr>
-                <th style="text-align:left;">名前</th>
-                <th style="text-align:left;">デフォルト値</th>
-                <th style="text-align:left;">説明</th>
+                <th style="text-align:left;">Name</th>
+                <th style="text-align:left;">Default</th>
+                <th style="text-align:left;">Description</th>
               </tr>
               <tr>
                 <td><code>gridSize</code></td>
                 <td>60(px)</td>
-                <td>ピン同士を同じクラスターとみなす半径サイズ</td>
+                <td>Cluster radius in pixels</td>
               </tr>
               <tr>
                 <td><code>minClusterSize</code></td>
                 <td>2</td>
-                <td>ピンが何個集まればクラスターとみなすか</td>
+                <td>The minimum number of markers to be in a cluster before the markers are hidden and a count is shown.</td>
               </tr>
               <tr>
                 <td><code>imagePath</code></td>
                 <td><code>./images/cluster/</code></td>
-                <td>クラスターアイコンへのパス</td>
+                <td>The cluster image URL</td>
               </tr>
               <tr>
                 <td><code>injectStyle</code></td>
                 <td></td>
-                <td>クラスターや、ラベルにつけるスタイル。<br><code>ymap-cluster-label</code>、<code>ymap-cluster-icon</code>に対して指定できる</td>
+                <td>function to add clusters and labels style<br><code>ymap-cluster-label</code>、<code>ymap-cluster-icon</code>に対して指定できる</td>
               </tr>
               <tr>
                 <td><code>getClusterSize</code></td>
                 <td></td>
-                <td>クラスターの中のピンの数に応じてマーカーの色を変えるための関数を指定できる</td>
+                <td>Caluculator function to colorize the cluster icons</td>
               </tr>
             </table>
           </div>
