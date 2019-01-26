@@ -5,7 +5,7 @@ const defaults = {
   gridSize: 60,
   minClusterSize: 2,
   maxZoom: null,
-  imagePath: './images/cluster/'
+  imagePath: 'https://appleple.github.io/yahoo-map-cluster/images/cluster/'
 }
 
 export default class Cluster {

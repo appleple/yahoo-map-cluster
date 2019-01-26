@@ -22,8 +22,8 @@
     ],
     "homepage": "https://appleple.github.io/document-outliner/",
     "author": {
-      "name": "steelydylan",
-      "email": "hori@appleple.com"
+        "name": "steelydylan",
+        "email": "hori@appleple.com"
     },
     "license": "MIT",
     "devDependencies": {

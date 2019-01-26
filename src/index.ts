@@ -34,7 +34,7 @@ export default class YmapCluster {
         position: absolute;
         top: -13px;
         left: -15px;
-        margin: 0;
+        margin: 0 !important;
         font-family: Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W3",Meiryo,"メイリオ","ＭＳ Ｐゴシック","MS PGothic",Verdana,sans-serif;
       }
       .ymap-cluster-icon {
