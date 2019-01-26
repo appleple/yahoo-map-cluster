@@ -1,6 +1,6 @@
 {
     "name": "yahoo-map-cluster",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Yahoo Map Cluster",
     "main": "lib/index.js",
     "type": "lib/index.d.ts",
