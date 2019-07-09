@@ -2,6 +2,8 @@ import Cluster from './cluster';
 import { append } from './lib';
 import { ClusterOption } from './cluster-type';
 
+/// <reference path="./global.d.ts" />
+
 export default class YmapCluster {
   markers: Y.Marker[];
   map: Y.Map;

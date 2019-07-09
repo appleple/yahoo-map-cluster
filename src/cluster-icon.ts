@@ -1,6 +1,8 @@
 import { ClusterConfig, ClusterOption } from './cluster-type';
 import YmapCluster from './cluster';
 
+/// <reference path="./global.d.ts" />
+
 export default class ClusterIcon {
   clusterOption: ClusterOption;
   center: Y.LatLng = new Y.LatLng(0, 0);

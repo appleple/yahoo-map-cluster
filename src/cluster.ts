@@ -1,6 +1,8 @@
 import ClusterIcon from './cluster-icon'
 import { ClusterConfig, ClusterOption } from './cluster-type';
 
+/// <reference path="./global.d.ts" />
+
 const defaults = {
   gridSize: 60,
   minClusterSize: 2,
