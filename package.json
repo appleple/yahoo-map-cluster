@@ -8,7 +8,7 @@
         "test": "jest",
         "dev": "webpack-dev-server --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js",
-        "build:lib": "cp ./src/global.d.ts ./lib/global.d.ts && tsc",
+        "build:lib": "cp ./src/global.d.ts ./lib/global.d.ts && tsc && cp ./tools/index.txt ./lib/index.d.ts",
         "np": "np --no-cleanup --no-test",
         "deploy": "npm-run-all -s build build:lib np"
     },
